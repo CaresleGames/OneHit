@@ -12,8 +12,7 @@ func _ready() -> void:
 func enter(msg := {}) -> void:
 	print("Dodge state")
 	collision.set_deferred("disabled", true)
-
-	player.position.x += 60 * player.direction
+	player.dodge_interpolate()
 
 
 func update(_delta : float) -> void:
