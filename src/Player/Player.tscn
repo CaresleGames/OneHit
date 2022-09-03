@@ -17,6 +17,8 @@ script = ExtResource( 2 )
 speed = 100
 speed_acc = 42.0
 speed_fri = 0.8
+dodge_time = 0.25
+dodge_increase = 20.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -40,3 +42,10 @@ collision_path = NodePath("../../CollisionShape2D")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="DodgeChecker" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 4
