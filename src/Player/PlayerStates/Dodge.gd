@@ -3,6 +3,7 @@ extends PlayerState
 
 export var collision_path : NodePath
 
+# The hit box that detect the enemy atacks inside the player
 var collision : CollisionShape2D
 
 func _ready() -> void:
@@ -12,7 +13,7 @@ func _ready() -> void:
 func enter(msg := {}) -> void:
 	print("Dodge state")
 	collision.set_deferred("disabled", true)
-	player.dodge_interpolate()
+	player.dodge_movement()
 
 
 func update(_delta : float) -> void:
