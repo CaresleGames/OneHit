@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "PlayerState",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://src/Player/PlayerStates/Attack.gd"
+}, {
+"base": "PlayerState",
 "class": "Death",
 "language": "GDScript",
 "path": "res://src/Player/PlayerStates/Death.gd"
@@ -45,6 +50,7 @@ _global_script_classes=[ {
 "path": "res://src/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Attack": "",
 "Death": "",
 "Idle": "",
 "Player": "",
@@ -115,6 +121,8 @@ ui_attack={
 2d_physics/layer_3="floor"
 2d_physics/layer_4="player_hit_box"
 2d_physics/layer_5="enemy_hit_box"
+2d_physics/layer_6="player_attack_box"
+2d_physics/layer_7="enemy_attack_box"
 
 [physics]
 
