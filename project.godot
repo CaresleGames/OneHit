@@ -53,6 +53,11 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://src/StateMachine/StateMachine.gd"
+}, {
+"base": "Control",
+"class": "TitleScreen",
+"language": "GDScript",
+"path": "res://src/UI/TitleScreen/TitleScreen.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
@@ -63,7 +68,8 @@ _global_script_class_icons={
 "PlayerState": "",
 "Run": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"TitleScreen": ""
 }
 
 [application]
