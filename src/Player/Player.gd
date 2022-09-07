@@ -5,6 +5,8 @@ export var speed := 0
 export var speed_acc : float = 0
 export var speed_fri : float = 0
 
+export var attack_time : float = .25
+
 var velocity := Vector2.ZERO
 var direction := 1
 var ground := Vector2.UP
@@ -13,14 +15,18 @@ onready var attack_area : Area2D = $AttackArea
 onready var attack_collision : CollisionShape2D = $AttackArea/CollisionShape2D
 onready var attack_duration : Timer = $AttackDuration
 
+onready var sprite : Sprite = $Sprite
+
+
 func _ready() -> void:
 	add_to_group(Groups.player)
 	attack_collision.set_deferred("disabled", true)
+	attack_duration.wait_time = attack_time
 
 
 func _physics_process(_delta: float) -> void:
 	attack_area.scale.x = direction
-	
+	sprite.scale.x = direction
 
 func get_input() -> void:
 	if Input.is_action_pressed("ui_right"):
@@ -36,3 +42,9 @@ func get_input() -> void:
 func _on_AttackDuration_timeout() -> void:
 	attack_collision.set_deferred("disabled", true)
 	attack_duration.stop()
+
+
+func _on_AttackArea_area_entered(area: Area2D) -> void:
+	print('Hit the weak point of enemy')
+	var parent : Enemy = area.get_parent()
+	parent.emit_signal("death")

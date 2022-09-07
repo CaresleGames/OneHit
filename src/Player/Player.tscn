@@ -18,7 +18,7 @@ extents = Vector2( 3, 5 )
 extents = Vector2( 5, 8 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 2
+collision_mask = 0
 script = ExtResource( 2 )
 speed = 100
 speed_acc = 42.0
@@ -47,6 +47,7 @@ script = ExtResource( 6 )
 script = ExtResource( 5 )
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
+modulate = Color( 0.223529, 0.219608, 0.894118, 1 )
 collision_layer = 8
 collision_mask = 16
 
@@ -56,7 +57,6 @@ shape = SubResource( 2 )
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 16
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2( 11, -1 )
@@ -64,4 +64,5 @@ shape = SubResource( 3 )
 
 [node name="AttackDuration" type="Timer" parent="."]
 
+[connection signal="area_entered" from="AttackArea" to="." method="_on_AttackArea_area_entered"]
 [connection signal="timeout" from="AttackDuration" to="." method="_on_AttackDuration_timeout"]
