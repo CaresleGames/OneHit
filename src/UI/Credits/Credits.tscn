@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Theme/theme_default.tres" type="Theme" id=1]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.087
+margin_bottom = 0.079999
+theme = ExtResource( 1 )
+text = "Credits"
+align = 1
+
+[node name="Persons" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.087
+margin_top = 18.0
+margin_bottom = 22.08
+theme = ExtResource( 1 )
+text = "art & code - caresle
+
+Font - Kenney
+
+SFX
+Dustyroom
+Kenney"
+align = 1
+
+[node name="Sprite" type="Sprite" parent="."]

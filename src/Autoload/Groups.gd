@@ -6,3 +6,6 @@ extends Node
 
 const player := "player"
 const enemy := "enemy"
+
+# UI
+const game_menu := "game_menu"
