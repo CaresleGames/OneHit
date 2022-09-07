@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+signal death()
+
 export var speed := 0
 export var speed_acc : float = 0
 export var speed_fri : float = 0
@@ -10,6 +12,8 @@ export var attack_time : float = .25
 var velocity := Vector2.ZERO
 var direction := 1
 var ground := Vector2.UP
+
+var is_alive := true
 
 onready var attack_area : Area2D = $AttackArea
 onready var attack_collision : CollisionShape2D = $AttackArea/CollisionShape2D
@@ -22,6 +26,7 @@ func _ready() -> void:
 	add_to_group(Groups.player)
 	attack_collision.set_deferred("disabled", true)
 	attack_duration.wait_time = attack_time
+	connect("death", self, "_on_player_death")
 
 
 func _physics_process(_delta: float) -> void:
@@ -48,3 +53,7 @@ func _on_AttackArea_area_entered(area: Area2D) -> void:
 	print('Hit the weak point of enemy')
 	var parent : Enemy = area.get_parent()
 	parent.emit_signal("death")
+
+
+func _on_player_death() -> void:
+	is_alive = false

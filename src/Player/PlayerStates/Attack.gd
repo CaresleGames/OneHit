@@ -6,6 +6,8 @@ func enter(msg := {}) -> void:
 	player.attack_duration.start()
 
 func physics_update(_delta: float) -> void:
+	if not player.is_alive:
+		state_machine.transition_to("Death")
 	if player.attack_duration.is_stopped():
 		state_machine.transition_to("Idle")
 		
