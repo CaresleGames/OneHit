@@ -277,8 +277,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_right = 240.0
-margin_bottom = 160.0
+margin_right = 0.0
+margin_bottom = 0.0
 previous_scene = "res://src/UI/TitleScreen/TitleScreen.tscn"
 
 [node name="Background" type="Sprite" parent="."]

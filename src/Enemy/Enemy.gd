@@ -38,6 +38,7 @@ func _physics_process(_delta: float) -> void:
 func _on_enemy_death() -> void:
 	is_alive = false
 	modulate = Color(125, 255, 255)
+	GameManager.emit_signal("round_end")
 
 
 func _on_Timer_timeout() -> void:

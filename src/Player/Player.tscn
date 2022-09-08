@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/player1.png" type="Texture" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/Player/PlayerStates/Attack.gd" type="Script" id=5]
 [ext_resource path="res://src/Player/PlayerStates/Death.gd" type="Script" id=6]
 [ext_resource path="res://src/Player/PlayerStates/Run.gd" type="Script" id=7]
+[ext_resource path="res://src/Player/PlayerStates/PauseState.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 7 )
@@ -45,6 +46,9 @@ script = ExtResource( 6 )
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+
+[node name="PauseState" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
 modulate = Color( 0.223529, 0.219608, 0.894118, 1 )
