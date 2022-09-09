@@ -1,6 +1,8 @@
 class_name Idle
 extends PlayerState
 
+func enter(msg := {}) -> void:
+	player.anim.play("Idle")
 
 
 func physics_update(_delta: float) -> void:

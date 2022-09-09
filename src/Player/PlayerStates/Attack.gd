@@ -4,6 +4,7 @@ extends PlayerState
 func enter(msg := {}) -> void:
 	player.attack_collision.set_deferred("disabled", false)
 	player.attack_duration.start()
+	player.anim.play("Attack")
 
 func physics_update(_delta: float) -> void:
 	if not player.is_alive:

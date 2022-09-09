@@ -23,6 +23,8 @@ onready var attack_duration : Timer = $AttackDuration
 onready var sprite : Sprite = $Sprite
 onready var state_machine : StateMachine = $StateMachine
 
+onready var anim : AnimationPlayer = $Anim
+
 func _ready() -> void:
 	add_to_group(Groups.player)
 	attack_collision.set_deferred("disabled", true)
