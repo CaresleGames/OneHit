@@ -61,7 +61,7 @@ func _on_AttackArea_area_entered(area: Area2D) -> void:
 
 func _on_player_death() -> void:
 	is_alive = false
-	GameManager.emit_signal("round_end")
+	GameManager.emit_signal("round_end", "Lose")
 
 
 func _on_pause_player() -> void:

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Theme/theme_default.tres" type="Theme" id=1]
 [ext_resource path="res://src/UI/GameMenu/GameMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/DM-CGS-41.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/DM-CGS-46.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hide"
@@ -17,18 +19,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -240, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 240, 160 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -73,18 +63,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -240, 0 ), Vector2( 0, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 240, 160 ) ]
-}
 
 [node name="GameMenu" type="Control"]
 anchor_right = 1.0
@@ -99,25 +77,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 77.0
-margin_top = 43.0
-margin_right = 162.0
-margin_bottom = 117.0
+margin_left = 720.0
+margin_top = 480.0
+margin_right = 960.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 240, 160 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 85.0
+margin_right = 240.0
 margin_bottom = 18.0
 text = "WIN/LOSE"
+align = 1
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 22.0
-margin_right = 85.0
+margin_right = 240.0
 margin_bottom = 46.0
 text = "Restart"
 
 [node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 50.0
-margin_right = 85.0
+margin_right = 240.0
 margin_bottom = 74.0
 text = "Exit"
 
@@ -127,5 +109,17 @@ anims/Hide = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/Show = SubResource( 3 )
 
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.522
+bus = "UI"
+
+[node name="FushSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.523
+bus = "UI"
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_Restart_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
