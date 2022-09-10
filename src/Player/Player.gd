@@ -38,6 +38,13 @@ func _physics_process(_delta: float) -> void:
 	attack_area.scale.x = direction
 	sprite.scale.x = direction
 
+func attack_animation_complete() -> bool:
+	if (
+		anim.current_animation_length <= anim.current_animation_position
+	):
+		return true
+	return false
+
 func get_input() -> void:
 	if is_alive:
 		if Input.is_action_pressed("ui_right"):

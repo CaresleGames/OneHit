@@ -74,3 +74,7 @@ func _on_CheckPlayer_timeout() -> void:
 func _on_Movement_body_exited(body: Node) -> void:
 	if body.is_in_group(Groups.player):
 		check_player.stop()
+
+
+func _on_TriggerAttack_timeout() -> void:
+	attack_collision.set_deferred("disabled", false)
